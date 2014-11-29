@@ -1,0 +1,9 @@
+﻿{
+  "GeneralError":"Ups! Seems like an error has occurred, please try again",
+  "NotNullOrEmptyString": "Provided value must not be empty",
+  "EmailMatchingSpecification": "Provided email is not in the valid format",
+  "IsNotExistingUserSpecification": "User with that username already exist",
+  "NewUserMatchingSpecification": "Registration data is not valid. Both email and username must be provided",
+  "UserIdMatchingSpecification": "User id must be provided",
+  "UserNameMatchingSpecification": "Username must not be empty"
+}

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CEF13B4B-DC42-417E-88BD-856CFC48A4F2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CC.Service.Controllers</RootNamespace>
+    <AssemblyName>CC.Service.Controllers</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Emit.ExtensibilityProvider">
+      <HintPath>..\CC.Service.DomainProcesses\bin\Debug\Emit.ExtensibilityProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Emit.LocalizationProvider">
+      <HintPath>..\..\..\Libs\Emit.LocalizationProvider\Emit.LocalizationProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Emit.RuleEngine">
+      <HintPath>..\..\..\Libs\Emit.RuleEngine\Emit.RuleEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLogic\UserController.cs" />
+    <Compile Include="Errors\SqlExError.cs" />
+    <Compile Include="Errors\GeneralError.cs" />
+    <Compile Include="Errors\RuleValidationError.cs" />
+    <Compile Include="Extensions\ExceptionHandlingControllerExtensions.cs" />
+    <Compile Include="ExceptionHandling\UserController.cs" />
+    <Compile Include="Notifications\UserController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validation\Containers\Base\BaseValidationContainer.cs" />
+    <Compile Include="Validation\Containers\Generic\RequestingUserValidationContainer.cs" />
+    <Compile Include="Validation\Containers\Users\ExistingUserValidationContainer.cs" />
+    <Compile Include="Validation\Containers\Users\NewUserValidationContainer.cs" />
+    <Compile Include="Validation\RuleSpecifications\Base\BaseDomainEntitySpecification.cs" />
+    <Compile Include="Validation\RuleSpecifications\Base\BaseSpecification.cs" />
+    <Compile Include="Validation\RuleSpecifications\Generic\NotNullOrEmptyString.cs" />
+    <Compile Include="Validation\RuleSpecifications\Users\EmailMatchingSpecification.cs" />
+    <Compile Include="Validation\RuleSpecifications\Users\IsNotExistingUserSpecification.cs" />
+    <Compile Include="Validation\RuleSpecifications\Users\NewUserMatchingSpecification.cs" />
+    <Compile Include="Validation\RuleSpecifications\Users\UserIdMatchingSpecification.cs" />
+    <Compile Include="Validation\RuleSpecifications\Users\UserNameMatchingSpecification.cs" />
+    <Compile Include="Validation\UserController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\MainConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\10 Common\CC.Common.Base\CC.Common.Base.csproj">
+      <Project>{B5DB934A-4FC9-4C0F-9FE0-2D31321D1FCA}</Project>
+      <Name>CC.Common.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\10 Common\CC.Common.Helpers\CC.Common.Helpers.csproj">
+      <Project>{968d432a-a685-4a72-9979-acd5925e9c0c}</Project>
+      <Name>CC.Common.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\10 Common\CC.Common.Logging\CC.Common.Logging.csproj">
+      <Project>{74BFD2E2-6E03-4B0A-B14B-F3DB984FC1BF}</Project>
+      <Name>CC.Common.Logging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\21 Entities\CC.Service.DomainEntities\CC.Service.DomainEntities.csproj">
+      <Project>{8120c1d5-e0c8-4ad0-ab88-1b54227f6384}</Project>
+      <Name>CC.Service.DomainEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\24 Storage Repositories\CC.Service.DataRepositoryContracts\CC.Service.DataRepositoryContracts.csproj">
+      <Project>{dbcba866-1ef1-4374-8287-c5e434e8b41a}</Project>
+      <Name>CC.Service.DataRepositoryContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\22 Processes\CC.Service.DomainProcesses\CC.Service.DomainProcesses.csproj">
+      <Project>{FCDE0051-144D-47A3-9914-71761C5B9276}</Project>
+      <Name>CC.Service.DomainProcesses</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

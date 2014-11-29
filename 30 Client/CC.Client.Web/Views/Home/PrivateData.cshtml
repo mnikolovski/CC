@@ -1,0 +1,33 @@
+﻿@model List<CC.Service.DomainEntities.Users.User>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>title</title>
+    </head>
+    <body>
+        <div>
+            <p>
+                <p>THIS ARE MY PRIVATE FILES</p><p><a href="/Logout">LOGOUT</a></p>
+            </p>
+            
+            @foreach (var user in Model)
+            {
+                <p>@user.Username</p>
+            }
+        </div>
+        <script src="~/Scripts/libs/jquery-2.1.0.js"></script>
+        <script src="~/Scripts/controllers/cc.controllers.channelfactory.js"></script>
+        <script src="~/Scripts/controllers/cc.controllers.logs.js"></script>
+        <script src="~/Scripts/components/errorhandler.js"></script>
+        <script>
+            setTimeout(function() {
+                throw "BUGZ ARE EVERYWHERE :)";
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>title</title>
+    </head>
+    <body>
+        <div>
+            WELCOME TO MY AWESOME APP!
+            <p>
+                <a href="/Login?username=user1&password=HASHED_PASSWORD">LOGIN WITH VALID USER</a>
+            </p>
+            <p>
+                <a href="/Login?username=user1&password=asdasd">LOGIN WITH INVALID USER</a>
+            </p>
+            <p>
+                <a href="/Login?username=user1">LOGIN WITH MISSING DATA</a>
+            </p>
+            <p>
+                <a href="/Register?username=user1000&password=HASHED_PASSWORD">REGISTER NEW VALID USER</a>
+            </p>
+            <p>
+                <a href="/Register?username=user1&password=asdasd">REGISTER USER WITH EXISTING USERNAME</a>
+            </p>
+            <p>
+                <a href="/Register">REGISTER USER WITH MISSING DATA</a>
+            </p>
+            <p>
+                <a href="/Exception">THROW NULLPOINTER EXCEPTION</a>
+            </p>
+        </div>
+        <script src="~/Scripts/libs/jquery-2.1.0.js"></script>
+        <script src="~/Scripts/controllers/cc.controllers.channelfactory.js"></script>
+        <script src="~/Scripts/controllers/cc.controllers.logs.js"></script>
+        <script src="~/Scripts/components/errorhandler.js"></script>
+        <script>
+            setTimeout(function() {
+                throw "THIS IS NOT AN ERROR :)";
+            })
+        </script>
+    </body>
+</html>

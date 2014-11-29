@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FCDE0051-144D-47A3-9914-71761C5B9276}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CC.Service.DomainProcesses</RootNamespace>
+    <AssemblyName>CC.Service.DomainProcesses</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Emit.ExtensibilityProvider">
+      <HintPath>..\..\..\Libs\Emit.ExtensibilityProvider\Emit.ExtensibilityProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Emit.LocalizationProvider">
+      <HintPath>..\..\..\Libs\Emit.LocalizationProvider\Emit.LocalizationProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensibility\Exports\BusinessLogicExportAttribute.cs" />
+    <Compile Include="Extensibility\Exports\EntryPointExportAttribute.cs" />
+    <Compile Include="Extensibility\Exports\ExceptionHandlingExportAttribute.cs" />
+    <Compile Include="Extensibility\Exports\NotificationExportAttribute.cs" />
+    <Compile Include="Extensibility\Exports\ValidationExportAttribute.cs" />
+    <Compile Include="Extensibility\Imports\BusinessLogicImportAttribute.cs" />
+    <Compile Include="Extensibility\Imports\EntryPointImportAttribute.cs" />
+    <Compile Include="Extensibility\Imports\ExceptionHandlingImportAttribute.cs" />
+    <Compile Include="Extensibility\Imports\NotificationImportAttribute.cs" />
+    <Compile Include="Extensibility\Imports\ValidationImportAttribute.cs" />
+    <Compile Include="Extensibility\Markers\IBusinessController.cs" />
+    <Compile Include="Extensibility\Markers\IController.cs" />
+    <Compile Include="Extensibility\Markers\IEntryPointController.cs" />
+    <Compile Include="Extensibility\Markers\IExceptionHandlingController.cs" />
+    <Compile Include="Extensibility\Markers\INotificationController.cs" />
+    <Compile Include="Extensibility\Markers\IValidationController.cs" />
+    <Compile Include="IUserProcesses.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\10 Common\CC.Common.Base\CC.Common.Base.csproj">
+      <Project>{B5DB934A-4FC9-4C0F-9FE0-2D31321D1FCA}</Project>
+      <Name>CC.Common.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\21 Entities\CC.Service.DomainEntities\CC.Service.DomainEntities.csproj">
+      <Project>{8120C1D5-E0C8-4AD0-AB88-1B54227F6384}</Project>
+      <Name>CC.Service.DomainEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

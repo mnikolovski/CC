@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F1FAB04-320E-4AC1-BE9A-9D98CF0896C7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CC.Client.Web.Security</RootNamespace>
+    <AssemblyName>CC.Client.Web.Security</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Solution\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuthorizeAttributes\AuthorizedAndVerifiedUserAttribute.cs" />
+    <Compile Include="AuthorizeAttributes\AuthorizedUserAttribute.cs" />
+    <Compile Include="AuthorizeAttributes\JsonAuthorizedAndVerifiedUserAttribute.cs" />
+    <Compile Include="AuthorizeAttributes\JsonAuthorizedUserAttribute.cs" />
+    <Compile Include="Entities\AnonymousSecurityUser.cs" />
+    <Compile Include="Entities\SecurityUser.cs" />
+    <Compile Include="Extensions\RequestHelpers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\MvcFormsSecurityProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\10 Common\CC.Common.Base\CC.Common.Base.csproj">
+      <Project>{B5DB934A-4FC9-4C0F-9FE0-2D31321D1FCA}</Project>
+      <Name>CC.Common.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\10 Common\CC.Common.Helpers\CC.Common.Helpers.csproj">
+      <Project>{968D432A-A685-4A72-9979-ACD5925E9C0C}</Project>
+      <Name>CC.Common.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\20 Service\21 Entities\CC.Service.DomainEntities\CC.Service.DomainEntities.csproj">
+      <Project>{8120C1D5-E0C8-4AD0-AB88-1B54227F6384}</Project>
+      <Name>CC.Service.DomainEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\20 Service\22 Processes\CC.Service.DomainProcesses\CC.Service.DomainProcesses.csproj">
+      <Project>{FCDE0051-144D-47A3-9914-71761C5B9276}</Project>
+      <Name>CC.Service.DomainProcesses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\20 Service\23 Controllers\CC.Service.ControllerInstance\CC.Service.ControllerInstance.csproj">
+      <Project>{53898C0A-D1AC-4E4C-B6C1-B82350CB9144}</Project>
+      <Name>CC.Service.ControllerInstance</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
